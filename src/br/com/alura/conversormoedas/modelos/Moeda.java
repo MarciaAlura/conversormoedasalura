@@ -31,13 +31,13 @@ public class Moeda implements Comparable<Moeda> {
         private int time_last_update_unix;
 
         @SerializedName("time_last_update_utc")
-        private Date time_last_update_utc;
+        private String time_last_update_utc;
 
         @SerializedName("time_next_update_unix")
         private int time_next_update_unix;
 
         @SerializedName("time_next_update_utc")
-        private Date time_next_update_utc;
+        private String time_next_update_utc;
 
         @SerializedName("base_code")
         private String base_code;
@@ -90,7 +90,7 @@ public class Moeda implements Comparable<Moeda> {
         return time_last_update_unix;
     }
 
-    public Date getTime_last_update_utc() {
+    public String getTime_last_update_utc() {
         return time_last_update_utc;
     }
 
@@ -98,7 +98,7 @@ public class Moeda implements Comparable<Moeda> {
         return time_next_update_unix;
     }
 
-    public Date getTime_next_update_utc() {
+    public String getTime_next_update_utc() {
         return time_next_update_utc;
     }
 
