@@ -9,6 +9,7 @@ import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Conversor {
     public static void main(String[] args) {
@@ -69,7 +70,21 @@ public class Conversor {
         while (menu != 7) {
 
             System.out.println("Digite o número correspondente a aconversão desejada:");
-            menu = leitura.nextInt();
+
+            try{
+                menu = leitura.nextInt();
+                String entrada = String.valueOf(menu);
+                if (!Pattern.matches("\\d+", entrada)) {
+                    System.out.println("Entrada inválida!!!!");
+                    menu = 7;
+                }
+            } catch (Exception e) {
+                menu = 7;
+                System.out.println("    ");
+                System.out.println("*** Caracter inválido. Infelizmente teremos que encerrar a aplicação. ****");
+                System.out.println("    ");
+
+            }
 
 
             if ((menu >= 1) && (menu <= 6)) {
@@ -98,7 +113,7 @@ public class Conversor {
                 System.out.println(moedaExterno);
 
             } else if (menu <= 0 || menu >= 8) {
-                System.out.println("Numero incorreto: por favor, digite um numero que estaja no menu acima:");
+                System.out.println("Numero incorreto: por favor, digite um numero que esteja no menu acima:");
                 menu = 1;
             } else {
                 System.out.println("**************************************");
