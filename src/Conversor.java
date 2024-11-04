@@ -126,7 +126,7 @@ public class Conversor {
                             " \nem " + moedaExterno.target_code() +
                             " valor de conversão: " + moedaExterno.target_code() + " " +
                             String.format("%.2f", valor));
-                }catch (Exception e){
+                } catch (Exception e){
                     menu = 7;
                     System.out.println("\n*** Quantidade de moedas inválida!! ****");
                     System.out.println("\n*** Infelizmente teremos que encerrar a aplicação. ****");
