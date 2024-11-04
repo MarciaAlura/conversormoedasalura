@@ -110,7 +110,30 @@ public class Conversor {
                 Gson gson = new Gson();
 
                 MoedaExterno moedaExterno = gson.fromJson(json, MoedaExterno.class);
-                System.out.println(moedaExterno);
+
+                /*Digitar a qtde de moeda para conversão*/
+                System.out.println("Qual a quantidade para conversão de "+moedaExterno.base_code()+
+                                " para "+moedaExterno.target_code()+"?");
+
+                try {
+                    double valorMoedaConversao = leitura.nextDouble();
+                    String entradaValor = String.valueOf(valorMoedaConversao);
+                    if (!Pattern.matches("\\d+", entradaValor)) {
+                        System.out.println("Digite um valor válido!!!!");
+                        valorMoedaConversao = 1;
+                    }
+
+                    double valor = (valorMoedaConversao * moedaExterno.conversion_rate());
+
+                    System.out.println("Valor de conversão:");
+                    System.out.println("Para cada " + moedaExterno.base_code() + " " + valorMoedaConversao +
+                            " \nem " + moedaExterno.target_code() +
+                            " é de :" + moedaExterno.target_code() + " " + valor);
+                }catch (Exception e){
+                    menu = 7;
+                    System.out.println("\n*** Quantidade de moedas inválida!! ****");
+                    System.out.println("\n*** Infelizmente teremos que encerrar a aplicação. ****");
+                }
 
             } else if (menu <= 0 || menu >= 8) {
                 System.out.println("Numero incorreto: por favor, digite um numero que esteja no menu acima:");
