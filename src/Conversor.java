@@ -118,17 +118,14 @@ public class Conversor {
                 try {
                     double valorMoedaConversao = leitura.nextDouble();
                     String entradaValor = String.valueOf(valorMoedaConversao);
-                    if (!Pattern.matches("\\d+", entradaValor)) {
-                        System.out.println("Digite um valor válido!!!!");
-                        valorMoedaConversao = 1;
-                    }
 
                     double valor = (valorMoedaConversao * moedaExterno.conversion_rate());
 
-                    System.out.println("Valor de conversão:");
+                    System.out.println("Valor de conversão: ");
                     System.out.println("Para cada " + moedaExterno.base_code() + " " + valorMoedaConversao +
                             " \nem " + moedaExterno.target_code() +
-                            " é de :" + moedaExterno.target_code() + " " + valor);
+                            " valor de conversão: " + moedaExterno.target_code() + " " +
+                            String.format("%.2f", valor));
                 }catch (Exception e){
                     menu = 7;
                     System.out.println("\n*** Quantidade de moedas inválida!! ****");
